@@ -1,5 +1,5 @@
 const invModel = require("../models/inventory-model")
-const utilities = require("../utilities")
+const utilities = require("../utilities/")
 
 const invCont = {}
 
@@ -25,6 +25,7 @@ invCont.buildByClassificationId = async function (req, res, next) {
       title: `${className} Vehicles`,
       nav,
       grid,
+      errors: null,
     });
   } catch (error) {
     next(error);
@@ -53,7 +54,8 @@ invCont.buildByInvId = async function (req, res, next) {
     res.render("./inventory/vehicle", {
       title: vehicleName,
       nav,
-      vehicleTemplate
+      vehicleTemplate,
+      errors: null,
     });
   } catch (error) {
     next(error);
