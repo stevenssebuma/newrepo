@@ -123,7 +123,7 @@ app.use((err, req, res, next) => {
 /* ***********************
  * Server Configuration
  *************************/
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5500;
 const host = process.env.HOST || "localhost";
 
 app.listen(port, () => {
