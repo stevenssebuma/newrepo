@@ -52,4 +52,11 @@ router.get("/logout", (req, res) => {
   res.redirect("/");
 });
 
+// Tickets route
+router.get("/tickets", utilities.checkJWTToken, utilities.handleErrors(accountController.buildSubmitTicketView));
+router.post("/tickets", utilities.checkJWTToken, utilities.handleErrors(accountController.submitTicket));
+router.get("/", utilities.checkJWTToken, utilities.handleErrors(accountController.buildUserTicketsView));
+
+router.get("/myTickets", utilities.handleErrors(accountController.buildUserTicketsView));
+
 module.exports = router;
